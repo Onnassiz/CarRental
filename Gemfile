@@ -47,6 +47,16 @@ gem "font-awesome-rails"
 # Add jquery
 gem "jquery-rails"
 
+# Add postgres
+gem 'pg'
+
+# Environment variable manager
+gem 'dotenv-rails'
+
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
