@@ -5,22 +5,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# Application CSS %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <%# Application JavaScript %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+
+    <%# Application CSS %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Ionic Icons -->
+    <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+
+    <%# Application JavaScript %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/header' unless auth_page? %>
+    <div id='content'>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' unless auth_page? %>
   </body>
 </html>

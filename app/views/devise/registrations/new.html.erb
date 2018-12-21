@@ -1,0 +1,45 @@
+<div class="auth-container sign-up">
+  <%= render "devise/shared/auth-page-left" %>
+  <div class="col-md-8 right-section pull-right">
+    <div class='row'>
+      <div class='col-md-12 home-link'>
+        <a href='/' title="Home"><ion-icon name="close"></ion-icon></a>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='offset-3 col-md-6 form'>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> 
+        
+        <!-- <%= devise_error_messages! %> -->
+        <%= render 'devise/shared/error_messages', object: resource %>
+    
+        <div class="group">
+          <%= f.text_field :email, autocomplete: "email", required: true %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Email</label>
+        </div>
+    
+        <div class="group">
+          <%= f.password_field :password, autocomplete: "new-password", required: true %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password</label>
+        </div>
+    
+        <div class="group">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password Confirmation</label>
+        </div>
+    
+        <div class="actions">
+          <%= f.submit "Sign up", :class => "btn btn-primary pull-right" %>
+          <%= render "devise/shared/links" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

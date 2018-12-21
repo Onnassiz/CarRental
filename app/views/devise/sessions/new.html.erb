@@ -1,0 +1,40 @@
+<div class="auth-container sign-in">
+  <%= render "devise/shared/auth-page-left" %>
+  <div class="col-md-8 right-section pull-right">
+    <div class="row">
+      <div class="col-md-12 home-link">
+        <a href="/" title="Home"><ion-icon name="close"></ion-icon></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form offset-3 col-md-6">
+        <%= form_for('user', url: session_path('user')) do |f| %>
+        <div class="group">
+          <%= f.text_field :email, required: true, autocomplete: "off" %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Email</label>
+        </div>
+
+        <div class="group">
+          <%= f.password_field :password, required: true, autocomplete: "current-password" %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password</label>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+        <div class="field pull-left">
+          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+        </div>
+        <% end -%>
+
+        <div class="actions"><%= f.submit "Log in",  :class => "btn btn-primary pull-right" %></div>
+        <% end %>
+        <br>
+        <br>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
